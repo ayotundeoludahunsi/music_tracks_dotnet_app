@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+
+<h5 class="display-4 text-primary">Tracks List</h5>
+
+<!-- search input section -->
+<div class="row">
+    <div class="col-sm-12">
+        <form method="GET" class="form-inline float-right" asp-controller="Home" asp-action="Index">
+                <span>Search by Genre:&nbsp;&nbsp;</span>
+                @Html.TextBox("genreSearch")
+                <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></i></button>
+        </form>
+    </div> 
+</div>
+
+
+<div class="row">
+<div class="col-sm-12">
+
+            <!--tracks list section-->
+            
+            <div class="table-responsive">
+            <table class="table table-hovered table-striped">
+
+                <thead>
+                    <tr>
+                    <th>SN</th>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Duration</th>
+                    <th>Genre</th>
+                    <th>Release Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @{
+                    int i = 0;
+                    foreach(var track in ViewData["Tracks"] as IEnumerable<TrackViewModel>)
+                    {
+                            <tr>
+                                <td>@(i+1).</td>
+                                <td>@track.Title</td>
+                                <td>@track.Artist</td>
+                                <td>@track.Duration</td>
+                                <td>@track.Genre</td>
+                                <td>@track.YearReleased</td>
+                            </tr>
+                            
+                            ++i;
+                        }
+                    }
+                    
+                </tbody>
+            </table>
+
+     </div>
+</div>
+</div>
+
+    
+
+</div>

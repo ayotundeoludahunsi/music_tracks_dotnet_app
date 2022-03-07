@@ -40,4 +40,4 @@ Project is created with:
 To run this project, 
 * Install .NET Core 3.1 locally
 * Clone/download the project and launch locally using visual studio code or visual studio
-* Open terminal on the project directory and run __dotnet run
+* Open terminal on the project directory and run **dotnet run**
